@@ -32,17 +32,10 @@ public class Dao {
     
     public List<Person> listAll() {
         List<Person> persons = new ArrayList<>();
-        MongoCursor<BasicDBObject> cursor = collection.find().iterator();
+        MongoCursor cursor = collection.find().iterator();
         
         while(cursor.hasNext()) {
-            BasicDBObject object = cursor.next();
-            Person person = new Person();
-            
-            person.set_Id(((ObjectId) object.get("_id")).toHexString());
-            person.setName((String) object.get("name"));
-            person.setImageUrl((String) object.get("imageUrl"));
-            
-            persons.add(person);
+            persons.add((Person) cursor.next());
         }
         
         return persons;

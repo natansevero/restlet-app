@@ -1,0 +1,17 @@
+version: '3'
+services:
+  restletapp:
+    build: .
+    container_name: restletapp
+    ports: 
+      - "8081:8080"
+    depends_on:
+      - banco
+    links:
+      - "banco:banco-app"
+
+  banco:
+    image: mongo
+    container_name: banco
+    ports: 
+      - "27017:27017"
