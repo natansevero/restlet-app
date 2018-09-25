@@ -49,7 +49,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.natansevero.Main</mainClass>
+                            <mainClass>com.natansevero.restlet.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -53,13 +53,13 @@ public class PersonResource extends ServerResource {
         List<Person> persons = dao.listAll();
         
         JSONArray response = new JSONArray();
-        
+        System.out.println("AAAAAAAAAAAAAAAAAAAaa");
         try {
             for(Person person: persons) {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", person.getId());
                 jsonObject.put("name", person.getName());
-                jsonObject.put("imageUrl", person.getImageUrl());
+//                jsonObject.put("imageUrl", person.getImageUrl());
 
                 response.put(jsonObject);
             }
