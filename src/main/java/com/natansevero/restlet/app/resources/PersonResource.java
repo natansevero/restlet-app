@@ -31,9 +31,9 @@ public class PersonResource extends ServerResource {
     public final Dao dao = Dao.getInstance();
     
     @Post("json")
-    public Representation createPerson(JsonRepresentation entity) throws IOException {
+    public Representation createPerson(Representation entity) throws IOException {
         try {
-            JSONObject personJsonObj = entity.getJsonObject();
+            JSONObject personJsonObj = new JsonRepresentation(entity).getJsonObject();
             
             Person person = new Person();
             person.setName(personJsonObj.getString("name"));            
