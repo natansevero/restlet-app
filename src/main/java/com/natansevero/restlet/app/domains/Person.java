@@ -5,7 +5,7 @@
  */
 package com.natansevero.restlet.app.domains;
 
-import com.mongodb.BasicDBObject;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -13,7 +13,7 @@ import com.mongodb.BasicDBObject;
  */
 public class Person {
     
-    private String _id;
+    private ObjectId id;
     private String name;
     private String imageUrl;
     
@@ -22,18 +22,18 @@ public class Person {
         
     }
 
-    public Person(String _id, String name, String imageUrl) {
-        this._id = _id;
+    public Person(ObjectId id, String name, String imageUrl) {
+        this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
     }
 
-    public String get_Id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void set_Id(String _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -54,7 +54,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "_id=" + _id + ", name=" + name + ", imageUrl=" + imageUrl + '}';
+        return "Person{" + "id=" + id + ", name=" + name + ", imageUrl=" + imageUrl + '}';
     }
     
     

@@ -5,14 +5,12 @@
  */
 package com.natansevero.restlet.app.database;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.natansevero.restlet.app.domains.Person;
 import java.util.ArrayList;
 import java.util.List;
-import org.bson.Document;
-import org.bson.types.ObjectId;
+import sun.security.jca.GetInstance;
 
 /**
  *
@@ -21,9 +19,19 @@ import org.bson.types.ObjectId;
 public class Dao {
     
     private final MongoCollection collection;
+    private static Dao instance;
     
-    public Dao() {
+    private Dao() {
         collection = new Connection().getCollection("persons", Person.class);
+    }
+    
+    public static Dao GetInstance() {
+        if(instance == null) {
+            instance = new Dao();
+            return instance;
+        }
+        
+        return instance;
     }
     
     public void save(Person person) {
