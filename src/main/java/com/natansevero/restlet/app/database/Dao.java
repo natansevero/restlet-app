@@ -10,7 +10,6 @@ import com.mongodb.client.MongoCursor;
 import com.natansevero.restlet.app.domains.Person;
 import java.util.ArrayList;
 import java.util.List;
-import sun.security.jca.GetInstance;
 
 /**
  *
@@ -25,7 +24,7 @@ public class Dao {
         collection = new Connection().getCollection("persons", Person.class);
     }
     
-    public static Dao GetInstance() {
+    public static Dao getInstance() {
         if(instance == null) {
             instance = new Dao();
             return instance;

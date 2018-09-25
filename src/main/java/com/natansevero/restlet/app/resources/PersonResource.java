@@ -28,7 +28,7 @@ import org.restlet.resource.ServerResource;
  */
 public class PersonResource extends ServerResource {
     
-    public final Dao dao = Dao.GetInstance();
+    public final Dao dao = Dao.getInstance();
     
     @Post("json")
     public Representation createPerson(JsonRepresentation entity) throws IOException {
@@ -63,7 +63,6 @@ public class PersonResource extends ServerResource {
 
                 response.put(jsonObject);
             }
-
         } catch (JSONException ex) {
             Logger.getLogger(PersonResource.class.getName()).log(Level.SEVERE, null, ex);
         }
